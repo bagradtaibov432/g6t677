@@ -5,21 +5,28 @@ using namespace std;
  
 int main() {
      
-    double skr, skv;
      
-    cout << "\n Поместится ли квадрат в круг?\n";
-    cout << "-------------------------------\n";
-     
-    cout << " Введите площадь круга: ";
-    cin >> skr;
-     
-    cout << " Введите площадь квадрата: ";
-    cin >> skv;
-     
-    string s = skr < skv * M_PI / 2 ? "не " : "";
-     
-    cout << "-------------------------------\n";
-    printf(" Квадрат %sпоместится в круг\n\n", s.data());
+   do
+    {
+        std::cout << "Enter number with 3 digits: ";
+        std::cin >> n;
+    } while (n < 100 || n > 999);
+ 
+    int a = n / 100;
+    int b = (n / 10) % 10;
+    int c = n % 10;
+ 
+    int sD = a + b + c;
+    if (sD >= 10 && sD <= 99)
+        std::cout << "a. Yes" << std::endl;
+    else
+        std::cout << "a. No" << std::endl;
+ 
+    int mD = a * b * c;
+    if (n == mD)
+        std::cout << "b. Yes";
+    else
+        std::cout << "b. No";
  
     return 0;
     // Таибов Баград Имамудинович. НПИбд-03-23
