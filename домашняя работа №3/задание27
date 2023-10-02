@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+int main(void)
+{
+int nom;
+    setlocale(LC_ALL, "RU");
+    cin>>nom;
+    switch(nom){
+        case 903:
+        case 905:
+        case 906:
+            cout <<"Билайн";
+            break;
+        case 925:
+        case 926:
+            cout <<"Мегафон";
+            break;
+        case 916:
+        case 917:
+            cout <<"МТС";
+            break;
+        case 901:
+        case 902:
+            cout <<"YOTA";
+            break;
+        case 930:
+        case 931:
+            cout <<"TELE2";
+            break;
+       
+            
+        default:
+            cout<<"Неверный код";
+        }
+    
+    
+
+    return 0;
+}
