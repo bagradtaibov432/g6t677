@@ -1,1 +1,17 @@
-
+int main(){
+setlocale (LC_CTYPE, "Russian");
+    int number ; int k; int temp ;
+    cout<<"Введите число: ";
+    cin>>number;
+    temp = number;
+    k = 0;
+    while (number != 0 ){
+        number = number /10;
+        k++;
+    }
+    number = temp;
+    for (int i = k; number != 0; i--){
+        cout<<i<<" "<<number % 10<<"\n";
+        number = number / 10;
+    }
+}
