@@ -1,1 +1,12 @@
-
+int main()
+{
+int m, sum = 0;
+setlocale(LC_ALL, "RU");
+cout <<"Введите число m"<<endl;
+cin >> m;
+for (int i = 1; i <= m; i++) { 
+sum += i; 
+} 
+cout << "Сумма чисел от 1 до " << m << " равна " << sum << endl; 
+    return 0;
+}
