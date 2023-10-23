@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+float exp1(float x, float e){
+    float xi=1,ni=1,rez=0,temprez=1;
+    int i=0;
+ 
+    while(temprez>e){
+        rez+=temprez;
+        ++i;
+        xi*=x;
+        ni*=i;
+        temprez=xi/ni;
+    }
+    return rez;
+}
+ 
+int main(void)
+{
+    float x,e;
+    printf("X:");
+    scanf("%f", &x);
+    int i;
+    for(i=1;i<=6;++i){
+        printf("E: ");
+        scanf("%f", &e);
+        printf("Exp: %f\n",exp1(x,e));
+    }
+    return 0;
+}
+/*Таибов Баград Имамудинович НПИбд-03-23-23
+Описать функцию Exp1(x, ε) вещественного типа
+(параметры x, ε — вещественные, ε > 0), находящую
+приближенное значение функции exp(x):
+. В сумме учитывать все слагаемые, большие ε. 
+С помощью Exp1 найти приближенное значение 
+экспоненты для данного x при шести данных ε*/
