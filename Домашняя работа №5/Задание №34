@@ -1,1 +1,28 @@
+#include <iostream>
 
+using namespace std;
+
+float fact(long int n){
+    int temp=1,i;
+    for(i=1;i<=n;++i) temp*=i;
+    return temp;
+}
+int main(void)
+{
+    int i, n;
+    for (i=1; i<=5; ++i){
+        printf("N:");
+        scanf("%i", &n);
+        printf("fact: %f\n",fact(n));
+        break;
+    }
+
+    return 0;
+}
+/* Таибов Багарад Имамудинович НПИбд-03-23
+Описать функцию Fact(N) целочисленного типа,
+вычисляющую значение факториала N! = 1·2·…·N
+(N > 0 — параметр целого типа; С помощью этой
+функции найти факториалы пяти данных целых чисел.
+Для того чтобы избежать переполнения типа int,
+используйте long long int. */
