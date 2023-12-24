@@ -1,45 +1,59 @@
 #include <iostream>
+#include <string>
+
+std::string getCardName(int suit, int rank) {
+    std::string suitName;
+    std::string rankName;
+    
+    switch (suit) {
+        case 1:
+            suitName = "пик";
+            break;
+        case 2:
+            suitName = "треф";
+            break;
+        case 3:
+        suitName = "бубен";
+            break;
+        case 4:
+            suitName = "червей";
+            break;
+        default:
+            suitName = "неизвестная масть";
+            break;
+    }
+    
+    switch (rank) {
+        case 11:
+            rankName = "валет";
+            break;
+            case 12:
+            rankName = "дама";
+            break;
+        case 13:
+            rankName = "король";
+            break;
+        case 14:
+            rankName = "туз";
+            break;
+        default:
+            rankName = std::to_string(rank);
+            break;
+    }
+    
+    std::string cardName = rankName + " " + suitName;
+    return cardName;
+}
 
 int main() {
-    int M, N;
-    std::cin >> M >> N;
-
-    int matrix[M][N];
+    int suit, rank;
+    std::cout << "Введите номер масти карты (1 - пик, 2 - треф, 3 - бубен, 4 - червей): ";
+    std::cin >> suit;
+    std::cout << "Введите номер достоинства карты (2-10, 11 - валет, 12 - дама, 13 - король, 14 - туз): ";
+    std::cin >> rank;
     
-    for (int i = 0; i < M; ++i) {
-        for (int j = 0; j < N; ++j) {
-            std::cin >> matrix[i][j];
-        }
-    }
-    
-    bool hasOrderedColumns = false;
-    int maxColumnElement = 0;
-    
-    for (int j = 0; j < N; ++j) {
-        bool isAscending = true;  
-        bool isDescending = true;
-        
-        for (int i = 1; i < M; ++i) {
-            if (matrix[i][j] < matrix[i-1][j]) {
-                isAscending = false;
-            }
-            
-            if (matrix[i][j] > matrix[i-1][j]) {
-                isDescending = false;
-            }
-        }
-        
-        if (isAscending || isDescending) {
-            hasOrderedColumns = true;
-            maxColumnElement = std::max(maxColumnElement, matrix[M-1][j]);
-        }
-    }
-
-    if (hasOrderedColumns) {
-        std::cout << maxColumnElement << std::endl;
-    } else {
-        std::cout << "0" << std::endl;
-    }
+    std::string cardName = getCardName(suit, rank);
+    std::cout << "Название карты: " << cardName << std::endl;
     
     return 0;
 }
