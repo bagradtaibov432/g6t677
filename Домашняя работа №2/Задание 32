@@ -1,0 +1,29 @@
+#include <iostream>
+
+int main() {
+  const int weeksInMonth = 4;
+  const int numOfChildrenSocksPerWeek = 3;
+  const int numOfWomenSocksPerWeek = 1;
+  const int numOfMenSocksPerWeek = 1;
+
+  double childSocksPrice = 2.5;  // Цена одной пары детских носков
+  double womenSocksPrice = 3.5;  // Цена одной пары женских носков
+  double menSocksPrice = 4.0;    // Цена одной пары мужских носков
+
+  double totalChildSocks = numOfChildrenSocksPerWeek * weeksInMonth;
+  double totalWomenSocks = numOfWomenSocksPerWeek * weeksInMonth;
+  double totalMenSocks = numOfMenSocksPerWeek * weeksInMonth;
+
+  double totalChildSocksProfit = totalChildSocks * childSocksPrice;
+  double totalWomenSocksProfit = totalWomenSocks * womenSocksPrice;
+  double totalMenSocksProfit = totalMenSocks * menSocksPrice;
+
+  double totalProfit = totalChildSocksProfit + totalWomenSocksProfit + totalMenSocksProfit;
+
+  std::cout << "Прибыль бабушки за месяц: " << totalProfit << std::endl;
+
+  return 0;
+}
+/*Таибов Баград НПИбд-03-23
+Бабушка вяжет в неделю 3 пары детских носков, пару женских и пару мужских и продает их.
+Считая, что в месяце 4 недели, определить, какую прибыль бабушка имеет за месяц*/
