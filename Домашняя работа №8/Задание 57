@@ -1,1 +1,24 @@
+#include <iostream>
+#include <sstream>
+
+int main() {
+    std::string inputSentence;
+    std::getline(std::cin, inputSentence);
+    
+    std::istringstream iss(inputSentence);
+    std::string word;
+    
+    bool isFirstWord = true;
+    
+    while (iss >> word) {
+        if (!isFirstWord) {
+            std::cout << ' ';
+        } else {
+            isFirstWord = false;
+        }
+        std::cout << word;
+    }
+    std::cout << std::endl;
+    return 0;
+}
 
