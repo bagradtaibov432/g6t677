@@ -1,23 +1,32 @@
+#include <cmath>
 #include <iostream>
 
 int main() {
-    double A, B, C;
-    std::cout << "Введите значения переменных A, B, C: ";
-    std::cin >> A >> B >> C;
-
-    if (A < B && B < C) {
-        A *= 2;
-        B *= 2;
-        C *= 2;
-    } else {
-        A = -A;
-        B = -B;
-        C = -C;
+  size_t n, m;
+  std::cin >> n >> m;
+  size_t max_idx = 0;
+  double max = std::numeric_limits<double>::min();
+  double** arr = new double*[n];
+  for (size_t i = 0; i < n; ++i) {
+    arr[i] = new double[m];
+    for (size_t j = 0; j < m; ++j) {
+      std::cin >> arr[i][j];
+      if (max < arr[i][j]) {
+        max = arr[i][j];
+        max_idx = j;
+      }
     }
+  }
 
-    std::cout << "Результат: A = " << A << ", B = " << B << ", C = " << C << std::endl;
-
-    return 0;
+  for (size_t i = 0; i < n; ++i) {
+    for (size_t j = 0; j < m; ++j) {
+      if (j == max_idx) continue;
+      std::cout << arr[i][j] << ' ';
+    }
+    std::cout << '\n';
+    delete[] arr[i];
+  }
+  delete[] arr;
 }
 // Таибов Баград НПИбд-03-23
 // Даны три переменные вещественного типа: A, B, C. Если их значения упорядочены
