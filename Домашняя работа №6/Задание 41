@@ -1,4 +1,37 @@
+#include <iostream>
+#include <vector>
 
+int main() {
+    int N;
+    std::cout << "Введите размер массива (N > 1): ";
+    std::cin >> N;
+
+    if (N <= 1) {
+        std::cerr << "Размер массива должен быть больше 1." << std::endl;
+        return 1; 
+    }
+
+    std::vector<double> arr(N);
+    std::cout << "Введите элементы массива: ";
+    for (int i = 0; i < N; ++i) {
+        std::cin >> arr[i];
+    }
+
+    int maxSumIndex = 0;
+    double maxSum = arr[0] + arr[1];
+    for (int i = 1; i < N - 1; ++i) {
+        double currentSum = arr[i] + arr[i + 1];
+        if (currentSum > maxSum) {
+            maxSum = currentSum;
+            maxSumIndex = i;
+        }
+    }
+
+    std::cout << "Два соседних элемента с максимальной суммой: ";
+    std::cout << arr[maxSumIndex] << " " << arr[maxSumIndex + 1] << std::endl;
+
+    return 0;
+}
 // Таибов Баград НПИбд-03-23
 // Дан массив размера N (N>1). Найти
 // два соседних элемента, сумма которых
