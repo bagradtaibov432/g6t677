@@ -1,1 +1,31 @@
+#include <iostream>
+using namespace std;
 
+int main(){
+    int M;
+    cin >> M;
+    float** a = new float*[M];
+    for (int i = 0; i < M; i++){
+        a[i] = new float [M];
+    
+    }
+    for (int i = 0; i < M; i++){
+        for (int j = 0; j < M; j++){
+            cin >> a[i][j];
+        }
+    }
+    for (int i = 0; i < M; i++){
+        for (int j = 0; j < M - i; j++){
+            cout << a[j][i] << ' ';
+        }
+        for(int j = i + 1; j < M; j++){
+        cout << a[M - i - 1] [j] << " ";
+        }
+    
+    }
+    for(int i = 0; i < M; i++){
+        delete[] a[i];
+    }
+    delete[] a;
+    return 0;
+}
