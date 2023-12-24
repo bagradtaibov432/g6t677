@@ -1,0 +1,17 @@
+#include <iostream>
+
+int main() {
+    unsigned int number;
+    std::cout << "Введите натуральное число: ";
+    std::cin >> number;
+
+    int lastDigit = number % 10;
+
+    if (lastDigit % 2 == 0) {
+        std::cout << "Число заканчивается четной цифрой." << std::endl;
+    } else {
+        std::cout << "Число не заканчивается четной цифрой." << std::endl;
+    }
+
+    return 0;
+}
