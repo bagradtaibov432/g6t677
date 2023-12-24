@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cmath>
+
+double calculateHypotenuse(double a, double b) {
+  double hypotenuse = sqrt(a * a + b * b);
+  return hypotenuse;
+}
+
+double calculateArea(double a, double b) {
+  double area = (a * b) / 2;
+  return area;
+}
+
+int main() {
+  double a, b;
+  std::cout << "Введите длину первого катета: ";
+  std::cin >> a;
+  std::cout << "Введите длину второго катета: ";
+  std::cin >> b;
+
+  double hypotenuse = calculateHypotenuse(a, b);
+  double area = calculateArea(a, b);
+
+  std::cout << "Гипотенуза: " << hypotenuse << std::endl;
+  std::cout << "Площадь: " << area << std::endl;
+
+  return 0;
+}
+/*Таибов Баград НПИбд-03-23
+Даны катеты прямоугольного треугольника. Найти его гипотенузу и площадь*?
