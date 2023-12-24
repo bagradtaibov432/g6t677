@@ -1,1 +1,49 @@
+#include <iostream>
 
+int main() {
+    int M, N;
+    std::cin >> M >> N;
+
+    int matrix[M][N];
+    
+    for (int i = 0; i < M; ++i) {
+        for (int j = 0; j < N; ++j) {
+            std::cin >> matrix[i][j];
+        }
+    }
+    
+    bool hasOrderedColumns = false;
+    int maxColumnElement = 0;
+    
+    for (int j = 0; j < N; ++j) {
+        bool isAscending = true;  
+        bool isDescending = true;
+        
+        for (int i = 1; i < M; ++i) {
+            if (matrix[i][j] < matrix[i-1][j]) {
+                isAscending = false;
+            }
+            
+            if (matrix[i][j] > matrix[i-1][j]) {
+                isDescending = false;
+            }
+        }
+        
+        if (isAscending || isDescending) {
+            hasOrderedColumns = true;
+            maxColumnElement = std::max(maxColumnElement, matrix[M-1][j]);
+        }
+    }
+
+    if (hasOrderedColumns) {
+        std::cout << maxColumnElement << std::endl;
+    } else {
+        std::cout << "0" << std::endl;
+    }
+    
+    return 0;
+}
+/* Таибов Баград НПИбд-03-23
+Мастям игральных карт присвоены следующие порядковые номера: масти «пики» – 1, «трефы» – 2, «бубны» – 3, «червы» – 4, а достоинству карт: «валету» – 11, «даме»
+– 12, «королю» – 13, «тузу» – 14 (порядковые номера карт остальных достоинств соответствуют их названиям). По заданным номерам масти и
+номеру достоинства карты определить полное название (масть и достоинство) соответствующей карты в виде «Дама пик», «Шестерка бубен» и т.д.*/
