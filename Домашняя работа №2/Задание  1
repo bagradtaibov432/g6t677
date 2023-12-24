@@ -1,1 +1,25 @@
+#include <iostream>
 
+double calculateTrapezoidArea(double a, double b, double h) {
+  double area = (a + b) * h / 2;
+  return area;
+}
+
+int main() {
+  double a, b, h;
+  std::cout << "Введите длину первого основания трапеции: ";
+  std::cin >> a;
+  std::cout << "Введите длину второго основания трапеции: ";
+  std::cin >> b;
+  std::cout << "Введите высоту трапеции: ";
+  std::cin >> h;
+
+  double trapezoidArea = calculateTrapezoidArea(a, b, h);
+
+  std::cout << "Площадь трапеции: " << trapezoidArea << std::endl;
+
+  return 0;
+}
+/*Таибов Баград НПИбд-03-23
+Составьте программу для вычисления площади трапеции по заданным основаниям a, b и
+высоте h.*/
