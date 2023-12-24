@@ -1,0 +1,41 @@
+
+#include <iostream>
+#include <string>
+
+std::string getColor(int atomicNumber) {
+  std::string color;
+
+  switch (atomicNumber) {
+    case 3:
+      color = "красный";
+      break;
+    case 11:
+      color = "желтый";
+      break;
+    case 19:
+      color = "фиолетовый";
+      break;
+    case 37:
+      color = "красный-фиолетовый";
+      break;
+    case 55:
+      color = "синий";
+      break;
+    default:
+      color = "неизвестный";
+      break;
+  }
+
+  return color;
+}
+
+int main() {
+  int atomicNumber;
+  std::cout << "Введите порядковый номер щелочного металла: ";
+  std::cin >> atomicNumber;
+  
+  std::string color = getColor(atomicNumber);
+  std::cout << "Цвет пламени этого металла: " << color << std::endl;
+
+  return 0;
+}
