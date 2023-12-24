@@ -1,1 +1,48 @@
+#include <iostream>
 
+int main() {
+    int M, N;
+    std::cin >> M >> N;
+
+    int matrix[M][N];
+    
+    for (int i = 0; i < M; ++i) {
+        for (int j = 0; j < N; ++j) {
+            std::cin >> matrix[i][j];
+        }
+    }
+    
+    bool hasOrderedColumns = false;
+    int maxColumnElement = 0;
+    
+    for (int j = 0; j < N; ++j) {
+        bool isAscending = true;  
+        bool isDescending = true;
+        
+        for (int i = 1; i < M; ++i) {
+            if (matrix[i][j] < matrix[i-1][j]) {
+                isAscending = false;
+            }
+            
+            if (matrix[i][j] > matrix[i-1][j]) {
+                isDescending = false;
+            }
+        }
+        
+        if (isAscending || isDescending) {
+            hasOrderedColumns = true;
+            maxColumnElement = std::max(maxColumnElement, matrix[M-1][j]);
+        }
+    }
+
+    if (hasOrderedColumns) {
+        std::cout << maxColumnElement << std::endl;
+    } else {
+        std::cout << "0" << std::endl;
+    }
+    
+    return 0;
+}
+/* Таибов Баград НПИбд-03-23
+Дана матрица размера M × N. Найти максимальный среди элементов тех столбцов, которые упорядочены либо по возрастанию, либо по убыванию.
+Если упорядоченные столбцы в матрице отсутствуют, то вывести 0.*/
