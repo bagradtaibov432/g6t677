@@ -1,4 +1,46 @@
+#include <iostream>
+#include <vector>
 
+int main() {
+    int N;
+    std::cout << "Введите размер массива (N > 1): ";
+    std::cin >> N;
+
+    if (N <= 1) {
+        std::cerr << "Размер массива должен быть больше 1." << std::endl;
+        return 1; 
+    }
+
+    std::vector<double> arr(N);
+    std::cout << "Введите элементы массива: ";
+    for (int i = 0; i < N; ++i) {
+        std::cin >> arr[i];
+    }
+
+    int minIndex = 0, maxIndex = 0;
+    for (int i = 1; i < N; ++i) {
+        if (arr[i] < arr[minIndex]) {
+            minIndex = i;
+        }
+        if (arr[i] > arr[maxIndex]) {
+            maxIndex = i;
+        }
+    }
+
+    int start = std::min(minIndex, maxIndex) + 1;
+    int end = std::max(minIndex, maxIndex);
+    for (int i = start; i < end; ++i) {
+        arr[i] = 0;
+    }
+
+    std::cout << "Массив после обнуления элементов между минимальным и максимальным: ";
+    for (int i = 0; i < N; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
 // Таибов Баград НПИбд-03-23
 // Дан массив размера N (N>1). Обнулить
 // элементы массива, расположенные между
